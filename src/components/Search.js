@@ -5,18 +5,24 @@ export default function Search() {
     const [term, setTerm] = useState('');
 
     useEffect(() => {
-        console.log('asdf')
-    });
-
-    function searchWiki(input) {
-        setTerm(input);
-    }
+        const search = async () => {
+            await axios.get('http://en.wikipedia.org/w/api.php', {
+                params: {
+                    action: 'query',
+                    list: 'search',
+                    format: 'json',
+                    origin: '*',
+                    srsearch: term
+                }
+            });
+        }
+        search();
+    }, [term]);
 
     return(
         <>
             <h1>Search</h1>
-            <input type="text" onChange={searchWiki(e.target.value)} value={term} />
-            { console.log(term) }
+            <input type="text" onChange={e => setTerm(e.target.value)} value={term} />
         </>
     );
 }
