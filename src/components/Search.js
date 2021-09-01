@@ -25,10 +25,32 @@ export default function Search() {
         }
     }, [term]);
 
+    const renderedResults = results.map((result) => {
+        return(
+            <div id={result.pageid} className="item">
+                <div className="content">
+                    <div className="header">
+                        {result.title}
+                    </div>
+                    <span dangerouslySetInnerHTML={{__html:result.snippet}}></span>
+                </div>
+            </div>
+        );
+    });
+
     return(
         <>
-            <h1>Search</h1>
-            <input type="text" onChange={e => setTerm(e.target.value)} value={term} />
+            <div className="ui form">
+                <div className="field">
+                    <h1>Search</h1>
+                    <label>Enter search term</label>
+                    <input type="text" onChange={e => setTerm(e.target.value)} value={term} />
+                </div>
+            </div>
+            <div className="ui celled list">
+                {renderedResults}
+            </div>
+ 
         </>
     );
 }
