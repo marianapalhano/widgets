@@ -25,11 +25,15 @@ export default function Search() {
                 search();
             }
         }, 500);
+
+        return () => {
+            clearTimeout(timeout);
+        };
         
     }, [term]);
 
     const renderedResults = results.map((result) => {
-        console.log(result)
+        
         return(
             <div id={result.pageid} className="item">
                 <div className="right floated content">
@@ -49,7 +53,7 @@ export default function Search() {
         <>
             <div className="ui form">
                 <div className="field">
-                    <h1>Search</h1>
+                    <h1>Wiki Search</h1>
                     <label>Enter search term</label>
                     <input type="text" onChange={e => setTerm(e.target.value)} value={term} />
                 </div>
