@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Accordion from './components/Accordion';
 import Dropdown from './components/Dropdown';
 import Search from './components/Search';
+import Translator from './components/Translator';
 
 const items = [
     {
@@ -44,9 +45,10 @@ const App = () => {
             <hr />
             <Search />
             <hr />
-            { showDropdown ? (
+            { showDropdown ?
                 <Dropdown options={options} selected={selected} onSelectedChange={setSelected} />
-            ) : null }
+            : null }
+            <Translator />
         </div>
     )
 };
