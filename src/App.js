@@ -46,7 +46,7 @@ const App = () => {
             <Search />
             <hr />
             { showDropdown ?
-                <Dropdown options={options} selected={selected} onSelectedChange={setSelected} />
+                <Dropdown label="Select a color" options={options} selected={selected} onSelectedChange={setSelected} />
             : null }
             <Translator />
         </div>
