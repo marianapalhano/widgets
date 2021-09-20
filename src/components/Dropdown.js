@@ -31,7 +31,6 @@ const Dropdown = ({ label, options, selected, onSelectedChange }) => {
     });
     return(
         <>
-            <h1>Dropdown</h1>
             <div ref={ref} className="ui form">
                 <div className="field">
                     <label className="label">{label}</label>
